@@ -1,0 +1,16 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "ignoreDependencies": ["fake-indexeddb", "moment", "vitest-canvas-mock"],
+  "workspaces": {
+    "packages/studio-base": {
+      "entry": [
+        "src/index.ts",
+        "src/**/*.test.{ts,tsx}",
+        "src/**/*.stories.tsx"
+      ],
+      "project": ["src/**/*.{ts,tsx}"],
+      "ignoreFiles": ["src/**/*.stories.tsx", "src/test/**"],
+      "ignoreExportsUsedInFile": true
+    }
+  }
+}

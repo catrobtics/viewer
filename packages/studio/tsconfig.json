@@ -1,0 +1,16 @@
+{
+  "extends": "@foxglove/tsconfig/base",
+  "compilerOptions": {
+    "incremental": true,
+    "composite": true,
+    "lib": ["dom", "es2022"],
+    "rootDir": "./src",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "outDir": "./dist",
+    "verbatimModuleSyntax": false,
+    "erasableSyntaxOnly": false
+  },
+  "include": ["./**/*"]
+}

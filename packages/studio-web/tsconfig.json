@@ -1,0 +1,20 @@
+{
+  "extends": "@foxglove/tsconfig/base",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["dom", "dom.iterable", "es2022", "webworker", "ESNext.Disposable"],
+    "experimentalDecorators": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@catrobotics/studio-base/*": ["../studio-base/src/*"]
+    },
+    "types": ["vite/client"],
+    "useUnknownInCatchVariables": false,
+    "noEmit": true,
+    "verbatimModuleSyntax": false,
+    "erasableSyntaxOnly": false
+  },
+  "include": ["**/*"],
+  "exclude": ["./src/**/*.stories.tsx"]
+}

@@ -1,0 +1,18 @@
+{
+  "references": [
+    { "path": "./packages/comlink-transfer-handlers/tsconfig.json" },
+    { "path": "./packages/den/tsconfig.json" },
+    { "path": "./packages/eslint-plugin-studio/tsconfig.json" },
+    { "path": "./packages/hooks/tsconfig.json" },
+    { "path": "./packages/log/tsconfig.json" },
+    { "path": "./packages/mcap-support/tsconfig.json" },
+    { "path": "./packages/message-path/tsconfig.json" },
+    { "path": "./packages/studio/tsconfig.json" },
+    { "path": "./packages/studio-base/tsconfig.json" },
+    { "path": "./packages/studio-web/tsconfig.json" },
+    { "path": "./packages/theme/tsconfig.json" },
+    { "path": "./web/tsconfig.json" },
+    { "path": "./benchmark/tsconfig.json" }
+  ],
+  "files": []
+}

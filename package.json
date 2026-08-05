@@ -1,0 +1,77 @@
+{
+  "name": "catrobotics-viewer",
+  "version": "1.86.0-dev",
+  "private": true,
+  "packageManager": "pnpm@10.34.5",
+  "author": {
+    "name": "CatRobotics",
+    "email": "support@catrotics.com"
+  },
+  "license": "MPL-2.0",
+  "homepage": "https://catrotics.com",
+  "repository": {
+    "type": "git",
+    "url": "https://catrotics.com"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "clean": "tsc --build --clean packages/**/tsconfig.json && rimraf dist */dist storybook-screenshots storybook-static",
+    "build:packages": "tsc --build --verbose packages/**/tsconfig.json",
+    "typecheck": "tsc --build --noEmit",
+    "web:build:dev": "vite build --mode development",
+    "web:build:prod": "vite build --mode production",
+    "dev": "vite",
+    "benchmark:serve": "vite --mode benchmark",
+    "benchmark:build:prod": "vite build --mode benchmark",
+    "license-check": "tsx ci/license-check.mts",
+    "format": "eslint . --report-unused-disable-directives --fix",
+    "lint": "eslint . --report-unused-disable-directives --fix",
+    "lint:ci": "eslint . --report-unused-disable-directives",
+    "lint:unused-exports": "knip --workspace @catrobotics/studio-base --include exports,types,files --reporter compact --no-progress",
+    "lint:dependencies": "knip --include dependencies,unlisted,duplicates --reporter compact --no-progress",
+    "lint:branding": "node --import tsx ci/lint-branding.mts",
+    "test": "vitest run --config vitest.config.mts",
+    "test:debug": "cross-env NODE_OPTIONS='--inspect-brk' vitest --config vitest.config.mts --no-file-parallelism",
+    "test:watch": "vitest --config vitest.config.mts",
+    "test:web-integration": "playwright test",
+    "test:web-integration:local": "BASE_URL=\"http://localhost:8080/\" playwright test",
+    "release:bump-nightly-version": "tsx ./ci/bump-nightly-version.mts",
+    "storybook": "storybook dev --port 9009 --config-dir .storybook",
+    "storybook:build": "STORYBOOK_DISABLE_TELEMETRY=1 storybook build --config-dir .storybook",
+    "version:all": "pnpm --recursive exec pnpm version"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "packages/@types/*",
+      "web",
+      "benchmark"
+    ]
+  },
+  "devDependencies": {
+    "@actions/exec": "3.0.0",
+    "@catrobotics/den": "workspace:*",
+    "@foxglove/tsconfig": "3.2.0",
+    "@mui/material": "9.2.0",
+    "@playwright/test": "1.62.1",
+    "@storybook/react-vite": "10.5.6",
+    "@types/node": "22.20.1",
+    "@vitejs/plugin-react": "6.0.5",
+    "cross-env": "10.1.0",
+    "eslint": "10.8.0",
+    "jsdom": "30.0.1",
+    "knip": "6.31.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-i18next": "17.0.11",
+    "rimraf": "6.1.3",
+    "storybook": "10.5.6",
+    "tsx": "^4.23.5",
+    "typescript": "7.0.2",
+    "vite": "8.2.0",
+    "vite-plugin-svgr": "5.2.0",
+    "vitest": "4.1.10"
+  }
+}

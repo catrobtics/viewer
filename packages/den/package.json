@@ -1,0 +1,24 @@
+{
+  "name": "@catrobotics/den",
+  "private": true,
+  "description": "Incubation area for code that may be released as future workspace packages",
+  "author": {
+    "name": "CatRobotics",
+    "email": "support@catrotics.com"
+  },
+  "license": "MPL-2.0",
+  "homepage": "https://catrotics.com",
+  "repository": {
+    "type": "git",
+    "url": "https://catrotics.com"
+  },
+  "dependencies": {
+    "async-mutex": "0.5.0",
+    "comlink": "4.4.2",
+    "xacro-parser": "0.3.11"
+  },
+  "devDependencies": {
+    "@foxglove/tsconfig": "3.2.0",
+    "@types/node": "22.20.1"
+  }
+}

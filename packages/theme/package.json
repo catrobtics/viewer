@@ -1,0 +1,28 @@
+{
+  "name": "@catrobotics/theme",
+  "private": true,
+  "description": "CatRobotics @mui/material theme",
+  "author": {
+    "name": "CatRobotics",
+    "email": "support@catrotics.com"
+  },
+  "homepage": "https://catrotics.com",
+  "repository": {
+    "type": "git",
+    "url": "https://catrotics.com"
+  },
+  "main": "./src/index",
+  "devDependencies": {
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@fluentui/react-icons": "2.0.334",
+    "@foxglove/tsconfig": "3.2.0",
+    "@mui/icons-material": "9.2.0",
+    "@mui/material": "9.2.0",
+    "@mui/utils": "9.2.0",
+    "@mui/x-data-grid": "9.10.1",
+    "@storybook/react-vite": "10.5.6",
+    "@types/react": "19.2.18",
+    "react": "19.2.8"
+  }
+}

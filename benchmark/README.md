@@ -1,0 +1,11 @@
+# CatRobotics | Viewer Benchmarking
+
+Benchmarks are specific combinations of layout and synthetic data playback. When a benchmark is opened, playback automatically starts and summary results are printed to the developer console.
+
+## Instructions
+
+Run a dev or prod build and open a benchmark URL from `benchmarks.txt`.
+
+`pnpm benchmark:serve` to start the benchmark dev build.
+
+`pnpm benchmark:build:prod` followed by `pnpm dlx serve -p 8080 benchmark/dist`.

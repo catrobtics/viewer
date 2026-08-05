@@ -1,0 +1,29 @@
+{
+  "name": "@catrobotics/message-path",
+  "private": true,
+  "author": {
+    "name": "CatRobotics",
+    "email": "support@catrotics.com"
+  },
+  "license": "MPL-2.0",
+  "homepage": "https://catrotics.com",
+  "repository": {
+    "type": "git",
+    "url": "https://catrotics.com"
+  },
+  "main": "./src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "prepack": "tsc -b"
+  },
+  "dependencies": {
+    "nearley": "2.20.1"
+  },
+  "devDependencies": {
+    "@foxglove/tsconfig": "3.2.0",
+    "@types/nearley": "2.11.5"
+  }
+}

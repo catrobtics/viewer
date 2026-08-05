@@ -1,0 +1,30 @@
+{
+  "name": "@catrobotics/eslint-plugin-studio",
+  "type": "module",
+  "private": true,
+  "author": {
+    "name": "CatRobotics",
+    "email": "support@catrotics.com"
+  },
+  "license": "MPL-2.0",
+  "homepage": "https://catrotics.com",
+  "repository": {
+    "type": "git",
+    "url": "https://catrotics.com"
+  },
+  "main": "./index.js",
+  "files": [
+    "src"
+  ],
+  "devDependencies": {
+    "@antfu/eslint-config": "^9.2.0",
+    "@foxglove/tsconfig": "3.2.0",
+    "@types/estree": "1.0.9",
+    "@types/node": "22.20.1",
+    "@typescript-eslint/parser": "8.66.0",
+    "@typescript-eslint/rule-tester": "8.66.0",
+    "@typescript-eslint/utils": "8.66.0",
+    "eslint": "10.8.0",
+    "typescript": "6.0.2"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "@foxglove/tsconfig/base",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["dom", "dom.iterable", "es2022", "webworker", "ESNext.Disposable"],
+    "experimentalDecorators": true,
+    "paths": {
+      "@catrobotics/studio-base/*": ["../packages/studio-base/src/*"]
+    },
+    "useUnknownInCatchVariables": false,
+    "noEmit": true
+  },
+  "include": ["./**/*", "../**/*.stories.*"]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "@catrobotics/studio",
+  "version": "1.86.0-dev",
+  "author": {
+    "name": "CatRobotics",
+    "email": "support@catrotics.com"
+  },
+  "license": "MPL-2.0",
+  "homepage": "https://catrotics.com",
+  "repository": {
+    "type": "git",
+    "url": "https://catrotics.com"
+  },
+  "main": "./src/index.ts",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "prepack": "tsc -b tsconfig.json"
+  },
+  "devDependencies": {
+    "@foxglove/tsconfig": "3.2.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "@foxglove/tsconfig/base",
+  "compilerOptions": {
+    "lib": ["es2022"],
+    "rootDir": ".",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node", "vitest/globals"],
+    "noEmit": true,
+    "verbatimModuleSyntax": false,
+    "erasableSyntaxOnly": false
+  },
+  "include": ["./**/*.ts"]
+}

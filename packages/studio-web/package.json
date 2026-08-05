@@ -1,0 +1,23 @@
+{
+  "name": "@catrobotics/studio-web",
+  "private": true,
+  "license": "MPL-2.0",
+  "main": "./src/index.tsx",
+  "dependencies": {
+    "@catrobotics/studio-base": "workspace:*"
+  },
+  "devDependencies": {
+    "@catrobotics/log": "workspace:*",
+    "@catrobotics/theme": "workspace:*",
+    "@fluentui/react-icons": "2.0.334",
+    "@foxglove/tsconfig": "3.2.0",
+    "@mui/material": "9.2.0",
+    "@storybook/react-vite": "10.5.6",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tss-react": "4.9.21",
+    "vite": "8.2.0"
+  }
+}

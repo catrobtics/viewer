@@ -1,0 +1,23 @@
+{
+  "extends": "@foxglove/tsconfig/base",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["dom", "dom.iterable", "es2022", "webworker", "ESNext.Disposable"],
+    "experimentalDecorators": true,
+    "rootDir": "./src",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@catrobotics/studio-base/*": ["./src/*"]
+    },
+    "types": ["node", "vitest/globals", "vite/client"],
+    "useUnknownInCatchVariables": false,
+    "declarationMap": false,
+    "noEmit": true,
+    "sourceMap": false,
+    "verbatimModuleSyntax": false,
+    "erasableSyntaxOnly": false
+  },
+  "include": ["./src/**/*", "./src/**/*.json", "../package.json"],
+  "exclude": ["./src/**/*.stories.tsx"]
+}

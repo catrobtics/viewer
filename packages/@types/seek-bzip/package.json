@@ -1,0 +1,5 @@
+{
+  "name": "@types/seek-bzip",
+  "private": true,
+  "types": "index.d.ts"
+}

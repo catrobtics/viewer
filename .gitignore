@@ -1,0 +1,15 @@
+*.log
+*.tsbuildinfo
+.DS_Store
+ci/apt/packages
+dist/
+node_modules/
+storybook-screenshots/
+storybook-static/
+# Test coverage
+coverage/
+playwright-report/
+test-results/
+
+# Extensions
+*.foxe

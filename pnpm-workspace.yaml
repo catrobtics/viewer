@@ -1,0 +1,18 @@
+packages:
+  - 'packages/*'
+  - 'packages/@types/*'
+  - web
+  - benchmark
+patchedDependencies:
+  react-dnd@16.0.1: patches/react-dnd.patch
+  react-json-tree@0.20.0: patches/react-json-tree@0.20.0.patch
+  react-mosaic-component@6.2.0: patches/react-mosaic-component.patch
+onlyBuiltDependencies:
+  - '@swc/core'
+  - esbuild
+packageExtensions:
+  # Perfectionist dynamically requires the TypeScript JS API. Keep that API on
+  # TS6 until the plugin supports the native TypeScript 7 implementation.
+  eslint-plugin-perfectionist@*:
+    dependencies:
+      typescript: 6.0.2

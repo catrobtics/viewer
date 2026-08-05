@@ -1,0 +1,21 @@
+{
+  "name": "benchmark",
+  "private": true,
+  "dependencies": {
+    "@catrobotics/studio-base": "workspace:*"
+  },
+  "devDependencies": {
+    "@catrobotics/den": "workspace:*",
+    "@catrobotics/log": "workspace:*",
+    "@catrobotics/studio": "workspace:*",
+    "@foxglove/rostime": "1.1.3",
+    "@foxglove/schemas": "2.1.0",
+    "@foxglove/tsconfig": "3.2.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "mathjs": "15.2.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "vite": "8.2.0"
+  }
+}

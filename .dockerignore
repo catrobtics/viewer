@@ -1,0 +1,12 @@
+*.log
+*.tsbuildinfo
+.DS_Store
+.git/
+coverage/
+dist/
+node_modules/
+playwright-report/
+storybook-screenshots/
+storybook-static/
+test-results/
+Dockerfile

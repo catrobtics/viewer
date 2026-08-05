@@ -1,0 +1,32 @@
+// -*- jsonc -*-
+{
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+  "debug.toolBarLocation": "docked",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": true,
+  // enable intellisense in custom snippets (see snippets.code-snippets)
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "eslint.options": {
+    "reportUnusedDisableDirectives": "error"
+  },
+  "eslint.format.enable": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "search.exclude": {
+    "**/*.code-search": true,
+    "**/bower_components": true,
+    "**/node_modules": true,
+    ".pnpm-store/**": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "eslint.lintTask.enable": true,
+  "i18n-ally.localesPaths": [
+    "packages/studio-base/src/i18n"
+  ]
+}
