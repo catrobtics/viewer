@@ -11,6 +11,7 @@
     { "path": "./packages/studio-base/tsconfig.json" },
     { "path": "./packages/studio-web/tsconfig.json" },
     { "path": "./packages/theme/tsconfig.json" },
+    { "path": "./packages/viewer/tsconfig.json" },
     { "path": "./web/tsconfig.json" },
     { "path": "./benchmark/tsconfig.json" }
   ],

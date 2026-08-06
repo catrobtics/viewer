@@ -14,7 +14,10 @@ import { CompatibilityBanner } from './CompatibilityBanner'
 
 const log = Logger.getLogger(import.meta.url)
 
+export { CompatibilityBanner } from './CompatibilityBanner'
 export { defineBranding } from './defineBranding'
+export { WebRoot } from './WebRoot'
+export type { WebRootProps } from './WebRoot'
 
 function LogAfterRender(props: React.PropsWithChildren): React.JSX.Element {
   useEffect(() => {

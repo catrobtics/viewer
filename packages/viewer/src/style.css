@@ -1,0 +1,5 @@
+/*
+ * Development-only stylesheet entry used by the monorepo web app.
+ * The Viewer source imports its component styles transitively. Published
+ * consumers load the generated, complete stylesheet from dist/style.css.
+ */

@@ -28,13 +28,18 @@ import LocalStorageAppConfiguration from './services/LocalStorageAppConfiguratio
 
 const isDevelopment = import.meta.env.DEV
 
-export function WebRoot(props: {
+export interface WebRootProps {
   extraProviders: React.JSX.Element[] | undefined
   dataSources: IDataSourceFactory[] | undefined
   AppBarComponent?: (props: AppBarProps) => React.JSX.Element
   branding?: BrandingConfig
   children: React.JSX.Element
-}): React.JSX.Element {
+  deepLinks?: string[]
+  enableGlobalCss?: boolean
+  enableLaunchPreferenceScreen?: boolean
+}
+
+export function WebRoot(props: WebRootProps): React.JSX.Element {
   const appConfiguration = useMemo(
     () =>
       new LocalStorageAppConfiguration({
@@ -62,11 +67,11 @@ export function WebRoot(props: {
 
   return (
     <SharedRoot
-      enableLaunchPreferenceScreen
-      deepLinks={[window.location.href]}
+      enableLaunchPreferenceScreen={props.enableLaunchPreferenceScreen ?? true}
+      deepLinks={props.deepLinks ?? [window.location.href]}
       dataSources={dataSources}
       appConfiguration={appConfiguration}
-      enableGlobalCss
+      enableGlobalCss={props.enableGlobalCss ?? true}
       extraProviders={props.extraProviders}
       AppBarComponent={props.AppBarComponent}
       branding={props.branding}

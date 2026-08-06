@@ -1,0 +1,71 @@
+{
+  "name": "@catrobtics/viewer",
+  "type": "module",
+  "version": "0.1.0-dev",
+  "description": "Embeddable CatRobotics Viewer React component and React DOM mount API",
+  "author": {
+    "name": "CatRobotics",
+    "email": "support@catrotics.com"
+  },
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/catrobtics/viewer/tree/main/packages/viewer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catrobtics/viewer.git",
+    "directory": "packages/viewer"
+  },
+  "bugs": {
+    "url": "https://github.com/catrobtics/viewer/issues"
+  },
+  "keywords": [
+    "catrobotics",
+    "robotics",
+    "viewer",
+    "visualization",
+    "react"
+  ],
+  "sideEffects": [
+    "./dist/style.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rimraf dist && vite build --config vite.config.mts && tsc --project tsconfig.build.json",
+    "prepack": "pnpm run build"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@catrobotics/studio-base": "workspace:*",
+    "@catrobotics/studio-web": "workspace:*",
+    "@foxglove/tsconfig": "3.2.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitejs/plugin-react": "6.0.5",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "rimraf": "6.1.3",
+    "typescript": "7.0.2",
+    "vite": "8.2.0",
+    "vite-plugin-svgr": "5.2.0"
+  }
+}

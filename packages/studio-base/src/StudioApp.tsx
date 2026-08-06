@@ -32,7 +32,15 @@ function contextMenuHandler(event: MouseEvent) {
   return false
 }
 
-export function StudioApp(): React.JSX.Element {
+export interface StudioAppProps {
+  manageContextMenu?: boolean
+  manageDocumentTitle?: boolean
+}
+
+export function StudioApp({
+  manageContextMenu = true,
+  manageDocumentTitle = true,
+}: StudioAppProps = {}): React.JSX.Element {
   const {
     dataSources,
     deepLinks,
@@ -65,16 +73,20 @@ export function StudioApp(): React.JSX.Element {
   const MaybeLaunchPreference = enableLaunchPreferenceScreen === true ? LaunchPreference : Fragment
 
   useEffect(() => {
+    if (!manageContextMenu) {
+      return
+    }
+
     document.addEventListener('contextmenu', contextMenuHandler)
     return () => {
       document.removeEventListener('contextmenu', contextMenuHandler)
     }
-  }, [])
+  }, [manageContextMenu])
 
   return (
     <MaybeLaunchPreference>
       <MultiProvider providers={providers}>
-        <DocumentTitleAdapter />
+        {manageDocumentTitle && <DocumentTitleAdapter />}
         <SendNotificationToastAdapter />
         <DndProvider backend={HTML5Backend}>
           <Suspense fallback={<></>}>

@@ -37,6 +37,8 @@
     "test:watch": "vitest --config vitest.config.mts",
     "test:web-integration": "playwright test",
     "test:web-integration:local": "BASE_URL=\"http://localhost:8080/\" playwright test",
+    "viewer:build": "pnpm --filter @catrobtics/viewer build",
+    "viewer:pack:check": "node ci/check-viewer-package.mjs",
     "release:bump-nightly-version": "tsx ./ci/bump-nightly-version.mts",
     "storybook": "storybook dev --port 9009 --config-dir .storybook",
     "storybook:build": "STORYBOOK_DISABLE_TELEMETRY=1 storybook build --config-dir .storybook",

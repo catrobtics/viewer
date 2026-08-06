@@ -68,6 +68,17 @@ export default defineConfig(({ mode }) => {
 
   return mergeConfig(studioViteConfig(benchmark ? '0.0.0-benchmark' : packageJson.version), {
     root,
+    resolve: benchmark
+      ? undefined
+      : {
+          alias: {
+            '@catrobtics/viewer/style.css': path.resolve(
+              repositoryRoot,
+              'packages/viewer/src/style.css',
+            ),
+            '@catrobtics/viewer': path.resolve(repositoryRoot, 'packages/viewer/src/index.ts'),
+          },
+        },
     publicDir: benchmark ? false : path.resolve(repositoryRoot, 'packages/studio-web/public'),
     build: {
       emptyOutDir: true,

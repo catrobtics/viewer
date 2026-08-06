@@ -7,7 +7,8 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@catrobotics/studio-base/*": ["../packages/studio-base/src/*"]
+      "@catrobotics/studio-base/*": ["../packages/studio-base/src/*"],
+      "@catrobtics/viewer": ["../packages/viewer/src/index.ts"]
     },
     "types": ["node", "vite/client"],
     "useUnknownInCatchVariables": false,

@@ -1,0 +1,113 @@
+name: Publish Viewer package
+
+on:
+  release:
+    types:
+      - published
+
+permissions: {}
+
+concurrency:
+  group: npm-viewer-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish @catrobtics/viewer
+    if: ${{ !github.event.release.prerelease && startsWith(github.event.release.tag_name, 'viewer-v') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Validate release tag
+        id: release
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        shell: bash
+        run: |
+          if [[ ! "$RELEASE_TAG" =~ ^viewer-v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+            echo "Release tag must match viewer-vX.Y.Z using stable SemVer." >&2
+            exit 1
+          fi
+
+          version="${RELEASE_TAG#viewer-v}"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Check out release tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          lfs: true
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.5
+          run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install OIDC-capable npm
+        run: npm install --global npm@11.6.2
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Set package version from release tag
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          npm version "$VERSION" \
+            --allow-same-version \
+            --no-git-tag-version \
+            --prefix packages/viewer
+
+          node -e "const pkg = require('./packages/viewer/package.json'); if (pkg.version !== process.env.VERSION) throw new Error('Package version does not match release tag')"
+
+      - name: Reject an already-published version
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+        shell: bash
+        run: |
+          set +e
+          lookup_output="$(npm view "@catrobtics/viewer@$VERSION" version 2>&1)"
+          lookup_status=$?
+          set -e
+
+          if [[ $lookup_status -eq 0 ]]; then
+            echo "@catrobtics/viewer@$VERSION is already published and cannot be overwritten." >&2
+            exit 1
+          fi
+
+          if [[ "$lookup_output" != *"E404"* ]]; then
+            echo "$lookup_output" >&2
+            exit "$lookup_status"
+          fi
+
+      - name: Build package
+        run: pnpm viewer:build
+
+      - name: Verify package contents
+        run: pnpm viewer:pack:check
+
+      - name: Configure bootstrap token when present
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        shell: bash
+        run: |
+          if [[ -n "$NPM_TOKEN" ]]; then
+            npm config set //registry.npmjs.org/:_authToken="$NPM_TOKEN" --location=user
+          fi
+
+      - name: Publish package
+        working-directory: packages/viewer
+        run: npm publish --access public --provenance
