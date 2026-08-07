@@ -10,6 +10,8 @@ storybook-static/
 coverage/
 playwright-report/
 test-results/
+.vercel/
 
 # Extensions
 *.foxe
+.env*

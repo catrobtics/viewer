@@ -1,4 +1,7 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm web:build:prod",
+  "framework": "vite",
   "github": {
     "silent": true
   },
@@ -13,6 +16,14 @@
         { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
         { "key": "Cross-Origin-Embedder-Policy", "value": "credentialless" }
       ]
+    }
+  ],
+  "installCommand": "pnpm install --frozen-lockfile",
+  "outputDirectory": "web/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "trailingSlash": false
