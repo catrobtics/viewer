@@ -1,0 +1,22 @@
+# Local build outputs and generated reports
+**/dist/
+storybook-static/
+storybook-screenshots/
+coverage/
+playwright-report/
+test-results/
+**/*.tsbuildinfo
+
+# Development-only projects and repository material
+.github/
+.storybook/
+.vscode/
+benchmark/
+docs/
+examples/
+resources/
+
+# Tests are not needed by the production Vite build
+packages/studio-base/src/test/
+**/*.test.*
+**/*.stories.*

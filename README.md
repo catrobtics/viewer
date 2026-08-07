@@ -6,7 +6,9 @@
 
 [English](#english) · [中文](#中文)
 
-![CatRobotics Viewer showing robotics data in multiple visualization panels](resources/screenshot.png)
+<p align="center">
+  <img src="packages/studio-base/src/assets/catrobotics-logo.svg" alt="CatRobotics logo" width="128" />
+</p>
 
 ## English
 
@@ -23,7 +25,7 @@ CatRobotics Viewer is a browser workspace for inspecting, visualizing, and diagn
 
 ### Use online or locally
 
-Open [catrotics.com](https://catrotics.com), or run the repository locally with Node.js 22.12+ (Node.js 24 recommended), pnpm 10.34.5, and Git LFS:
+Open [catrobtics.com](https://catrobtics.com), or run the repository locally with Node.js 22.12+ (Node.js 24 recommended), pnpm 10.34.5, and Git LFS:
 
 ```sh
 git clone https://github.com/catrobtics/viewer.git
@@ -81,12 +83,13 @@ mounted.render({ branding: { productName: 'Robot Operations' } })
 mounted.unmount()
 ```
 
-Read the [npm package guide](packages/viewer/README.md) for full-page mode, branding, lifecycle, props, browser compatibility, and host-page isolation.
+Read the [npm package guide](packages/viewer/README.md) for full-page mode, branding, lifecycle, props, browser compatibility, and host-page isolation. A runnable minimal Vite application is available in [`examples/react-viewer`](examples/react-viewer/README.md).
 
 ### Repository layout
 
 | Path | Purpose |
 | --- | --- |
+| `examples/react-viewer/` | Minimal Vite + React application consuming the published npm package |
 | `packages/viewer/` | Public `@catrobtics/viewer` React and React DOM package |
 | `packages/studio-base/` | Viewer UI, built-in panels, players, and application services |
 | `packages/studio-web/` | Browser composition, data sources, and public assets |
@@ -115,7 +118,7 @@ CatRobotics Viewer 是一个用于查看、可视化和诊断机器人数据的�
 
 ### 在线与本地运行
 
-可直接访问 [catrotics.com](https://catrotics.com)。本地开发需要 Node.js 22.12+（推荐 Node.js 24）、pnpm 10.34.5 和 Git LFS：
+可直接访问 [catrobtics.com](https://catrobtics.com)。本地开发需要 Node.js 22.12+（推荐 Node.js 24）、pnpm 10.34.5 和 Git LFS：
 
 ```sh
 git clone https://github.com/catrobtics/viewer.git
@@ -172,12 +175,13 @@ mounted.render({ branding: { productName: '机器人运维中心' } })
 mounted.unmount()
 ```
 
-完整页面模式、品牌配置、生命周期、全部 props、浏览器兼容性和宿主隔离说明见 [npm 包接入文档](packages/viewer/README.md)。
+完整页面模式、品牌配置、生命周期、全部 props、浏览器兼容性和宿主隔离说明见 [npm 包接入文档](packages/viewer/README.md)。可直接运行的最小 Vite 示例位于 [`examples/react-viewer`](examples/react-viewer/README.md)。
 
 ### 仓库结构
 
 | 路径 | 用途 |
 | --- | --- |
+| `examples/react-viewer/` | 使用已发布 npm 包的最小 Vite + React 应用 |
 | `packages/viewer/` | 对外发布的 `@catrobtics/viewer` React/React DOM 包 |
 | `packages/studio-base/` | Viewer UI、内置面板、播放器与应用服务 |
 | `packages/studio-web/` | Web 端组装、数据源和公共资源 |
